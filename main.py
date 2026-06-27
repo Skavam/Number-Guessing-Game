@@ -8,8 +8,14 @@ def main():
     number_to_guess = generate_random_number()
     
     while True:
+        player_choice = input(Fore.WHITE + "Guess a number between 1 and 100: ")
 
-        player_choice = int(input(Fore.WHITE +"Guess a number between 1 and 100: "))
+        try:
+            player_choice = int(player_choice)
+
+        except ValueError as error:
+            print(Fore.RED + "Invalid input. Please enter a valid integer.")
+            continue
 
         if player_choice == number_to_guess:
             print(Fore.GREEN + f"Congratulations! You guessed the correct number. It was {number_to_guess}.")
@@ -27,9 +33,6 @@ def main():
         elif player_choice > number_to_guess:
             print(Fore.LIGHTBLUE_EX + "Too high! Try again.")
             attempts += 1
-
-        else:
-            print(Fore.RED + "Invalid input. Please enter a number between 1 and 100.")
 
 def generate_random_number():
     return random.randint(1, 100)
