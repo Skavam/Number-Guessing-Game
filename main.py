@@ -14,6 +14,9 @@ def main():
             print(f"Congratulations! You guessed the correct number. It was {number_to_guess}.")
             break
 
+        elif player_choice < 1 or player_choice > 100:
+            print("Invalid input. Please enter a number between 1 and 100.")
+
         elif player_choice < number_to_guess:
             print("Too low! Try again.")
             attempts += 1
